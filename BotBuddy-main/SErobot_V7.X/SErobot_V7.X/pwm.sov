@@ -1,0 +1,24 @@
+void moteur_init(void)
+{
+  unsigned char period;
+  unsigned char configTMR2;
+
+ PSTR1CONbits.STR1A = 1; //PWM sur CCP1
+ CCPTMRS0bits.C1TSEL = 0b00; //timer 2 selectionné pour CCP1
+ ECCP1ASbits.CCP1AS = 0b000; //autoshutdown OFF
+ PWM1CONbits.P1RSEN = 0; //CCP1ASE clear by software to restart pwm
+ ECCP1AS = 0x00; // autoshutdown non utilisé...
+ CCP1CONbits.P1M = 0x00; //single output
+ CCP1CONbits.CCP1M = 0b1100;
+ CCPR1L= 0b00101000; //duty --> 160
+ CCP1CONbits.DC1B = 00; //duty ...
+
+ period = (char)(_XTAL_FREQ/(4L*TMR2_PRESC*FPWM) - 1);
+ configTMR2 = TIMER_INT_OFF & T2_PS_1_4 & T2_POST_1_1;
+ OpenTimer2(configTMR2);
+
+ ANSELCbits.ANSC2 = 0; //digital
+ TRISCbits.RC2 = 0; //output;
+ ECCP1ASbits.CCP1ASE = 0;
+}
+

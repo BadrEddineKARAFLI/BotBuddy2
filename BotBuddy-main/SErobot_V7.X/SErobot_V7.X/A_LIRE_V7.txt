@@ -1,0 +1,4 @@
+﻿
+Modifications, dans main.c:
+La gestion de la cmde START est supprimée.
+Le PIC initialise les I/O, allume la LED_UC, puis se met directement en attente de requete I2C (il n'attend plus la cmde I2C START).
