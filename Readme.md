@@ -150,12 +150,12 @@ video.intervalMs=500
 
 ## Architecture
 
-![Architecture](docs/architecture.md)
-*See `docs/architecture.md` for detailed UML diagrams.*
+![Architecture](BotBuddy-main/Portfolio.pdf.png)
+*See `BotBuddy-main/Portfolio.pdf.png` for detailed Architecture.*
 
 ## Contributing
 
-1. Fork & clone repository
+1. Fork & clone the repository
 2. Create branch: `git checkout -b feature/YourFeature`
 3. Commit & push
 4. Submit a PR referencing relevant issues
